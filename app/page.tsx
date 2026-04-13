@@ -168,13 +168,42 @@ export default function GreeceTripDashboard() {
     "Pack light layers for Santorini evenings because the breeze can pick up.",
   ];
 
+  const greekFoodGuide = {
+    breakfast: [
+      "Greek yogurt with honey and walnuts",
+      "Freddo espresso or freddo cappuccino",
+      "Spinach pie (spanakopita) or cheese pie (tiropita)",
+      "Fresh fruit, bread, and local jams"
+    ],
+    lunch: [
+      "Grilled fish (sea bream, sea bass) with lemon and olive oil",
+      "Greek salad (tomato, cucumber, feta, olive oil)",
+      "Souvlaki or gyros for something casual",
+      "Meze-style plates: tzatziki, saganaki, grilled vegetables"
+    ],
+    dinner: [
+      "Grilled seafood or whole fish",
+      "Lamb dishes (slow-roasted or grilled)",
+      "Moussaka (layered eggplant and meat dish)",
+      "Fava (Santorini specialty) and tomato fritters",
+      "Local wines like Assyrtiko"
+    ],
+    desserts: [
+      "Baklava (honey and nut pastry)",
+      "Loukoumades (Greek donuts with honey)",
+      "Galaktoboureko (custard pastry)",
+      "Simple yogurt with honey"
+    ]
+  };
+
   const sectionCard = "rounded-3xl border border-black/10 bg-white shadow-sm";
   const pill = "inline-flex rounded-full border border-black/10 bg-black/5 px-3 py-1 text-xs font-medium tracking-wide text-black/70";
 
   return (
-    <div className="min-h-screen bg-stone-50 text-zinc-900">
+    <div className="min-h-screen text-zinc-900 bg-gradient-to-br from-sky-100 via-white to-blue-100">
+      <div className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(14,165,233,0.16),_transparent_35%),linear-gradient(to_bottom,_rgba(255,255,255,0.75),_rgba(255,255,255,0.88))]">
       <div className="mx-auto max-w-7xl px-6 py-10 md:px-10">
-        <div className="mb-8 overflow-hidden rounded-[2rem] bg-gradient-to-br from-sky-100 via-white to-amber-100 p-8 shadow-sm ring-1 ring-black/5 md:p-10">
+        <div className="mb-8 overflow-hidden rounded-[2rem] bg-gradient-to-br from-blue-200/80 via-white to-sky-100 p-8 shadow-sm ring-1 ring-black/5 md:p-10">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div className="max-w-3xl">
               <div className="mb-3 inline-flex rounded-full bg-white/80 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-zinc-600 shadow-sm">
@@ -354,6 +383,28 @@ export default function GreeceTripDashboard() {
             </div>
 
             <div className={`${sectionCard} p-6`}>
+              <h2 className="text-2xl font-semibold tracking-tight">What to eat in Greece</h2>
+              <div className="mt-4 space-y-4 text-sm text-zinc-700">
+                <div>
+                  <div className="font-semibold">Breakfast</div>
+                  <ul className="mt-2 space-y-1">{greekFoodGuide.breakfast.map((x) => <li key={x}>• {x}</li>)}</ul>
+                </div>
+                <div>
+                  <div className="font-semibold">Lunch</div>
+                  <ul className="mt-2 space-y-1">{greekFoodGuide.lunch.map((x) => <li key={x}>• {x}</li>)}</ul>
+                </div>
+                <div>
+                  <div className="font-semibold">Dinner</div>
+                  <ul className="mt-2 space-y-1">{greekFoodGuide.dinner.map((x) => <li key={x}>• {x}</li>)}</ul>
+                </div>
+                <div>
+                  <div className="font-semibold">Desserts</div>
+                  <ul className="mt-2 space-y-1">{greekFoodGuide.desserts.map((x) => <li key={x}>• {x}</li>)}</ul>
+                </div>
+              </div>
+            </div>
+
+            <div className={`${sectionCard} p-6`}>
               <h2 className="text-2xl font-semibold tracking-tight">Useful notes</h2>
               <ul className="mt-4 space-y-3 text-sm leading-6 text-zinc-700">
                 {quickNotes.map((note) => <li key={note}>• {note}</li>)}
@@ -362,6 +413,7 @@ export default function GreeceTripDashboard() {
           </aside>
         </div>
       </div>
+    </div>
     </div>
   );
 }
